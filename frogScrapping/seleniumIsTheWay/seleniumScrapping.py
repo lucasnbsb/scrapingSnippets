@@ -14,21 +14,15 @@ import time
 
 
 driver = webdriver.Chrome('/home/lucas/chromedriver')
-
-
 driver.get("https://www.redbubble.com/people/Paigeonapage/explore?page=1&sortOrder=recent")
-
 driver.maximize_window()
 time.sleep(2)
 
-
-print(driver.title)
-
 # scroll to bottom of page
 
-height = int(driver.execute_script("return document.body.scrollHeight"))
 
 # slow scroll down to the bottom
+height = int(driver.execute_script("return document.body.scrollHeight"))
 for i in range(1, height, 5):
     driver.execute_script("window.scrollTo(0, {});".format(i))
     time.sleep(0.001)
